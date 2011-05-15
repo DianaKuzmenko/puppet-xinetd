@@ -1,25 +1,8 @@
-Simple xinetd module.
+= Summary
 
-With a basic "include xinetd", the package is installed and the daemon enabled.
-
-Definitions are available for the following :
- * Basic service enabling from an existing configuration snippet :
-
-    xinetd::service { "rsync": }
-
- * Advanced template-based configuration snippet creation :
-
-    xinetd::serviceconf { "vmstat":
-        service_type => "UNLISTED",
-        port         => "24101",
-        user         => "nobody",
-        server       => "/usr/bin/vmstat",
-    }
-
-Removing services is also supported :
-
-    xinetd::serviceconf { "vmstat":
-        server => "/usr/bin/vmstat",
-        ensure => absent,
-    }
+Summary::  Enable xinetd, enable existing services and configure new services
+Requires:: n/a
+Author::   Matthias Saou <thias@marmotte.net>
+License::  Apache License 2.0
+Tested::   puppet-0.25.4
 
