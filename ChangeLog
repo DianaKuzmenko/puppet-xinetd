@@ -1,0 +1,6 @@
+2013-03-08 - 0.2.0
+* Create ChangeLog.
+* Update README and change to markdown.
+* Change to 2 space indent.
+* Use cleaner undef defaults instead of obsolete false hacks.
+

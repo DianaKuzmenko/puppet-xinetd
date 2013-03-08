@@ -1,1 +1,1 @@
-xinetd::service { "rsync": }
+xinetd::service { 'rsync': }
