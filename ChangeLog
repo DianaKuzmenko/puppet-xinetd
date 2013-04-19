@@ -1,3 +1,6 @@
+2013-04-19 - 0.2.1
+* Use @varname syntax in templates to silence puppet 3.2 warnings.
+
 2013-03-08 - 0.2.0
 * Create ChangeLog.
 * Update README and change to markdown.
