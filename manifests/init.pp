@@ -8,9 +8,9 @@
 # Sample Usage :
 #   include xinetd
 #
-class xinetd {
+class xinetd inherits ::xinetd::params {
 
-  package { 'xinetd': ensure => installed }
+  package { $package: ensure => installed }
 
   # On RHEL5 "xinetd is stopped" has an exit status of 0, on RHEL6 it's fixed
   if ( $::operatingsystem == 'RedHat' ) and ( $::operatingsystemrelease < 6 ) {
@@ -20,7 +20,7 @@ class xinetd {
   }
 
   service { 'xinetd':
-    require   => Package['xinetd'],
+    require   => Package[$package],
     enable    => true,
     ensure    => running,
     restart   => '/etc/init.d/xinetd reload',
