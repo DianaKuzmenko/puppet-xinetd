@@ -13,7 +13,8 @@ class xinetd inherits ::xinetd::params {
   package { $package: ensure => installed }
 
   # On RHEL5 "xinetd is stopped" has an exit status of 0, on RHEL6 it's fixed
-  if ( $::operatingsystem == 'RedHat' ) and ( $::operatingsystemrelease < 6 ) {
+  if $::operatingsystem == 'RedHat'
+  and versioncmp($::operatingsystemrelease, '6') < 0 {
     $hasstatus = false
   } else {
     $hasstatus = true
