@@ -17,25 +17,33 @@ The `xinetd::service` definition is a very thin wrapper around puppet's
 Enable the `rsyncd` service with its original default configuration (will
 install and enable xinetd automatically) :
 
-    xinetd::service { 'rsync': }
+```puppet
+xinetd::service { 'rsync': }
+```
 
 Disable the above service :
 
-    xinetd::service { 'rsync': enable => false }
+```puppet
+xinetd::service { 'rsync': enable => false }
+```
 
 Create and enable a new service which will return vmstat output (will install
 and enable xinetd automatically) :
 
-    xinetd::serviceconf { 'vmstat':
-      service_type => 'UNLISTED',
-      port         => '24101',
-      user         => 'nobody',
-      server       => '/usr/bin/vmstat',
-    }
+```puppet
+xinetd::serviceconf { 'vmstat':
+  service_type => 'UNLISTED',
+  port         => '24101',
+  user         => 'nobody',
+  server       => '/usr/bin/vmstat',
+}
+```
 
 Remove the above service :
 
-    xinetd::serviceconf { 'vmstat':
-      ensure => absent,
-    }
+```puppet
+xinetd::serviceconf { 'vmstat':
+  ensure => 'absent',
+}
+```
 

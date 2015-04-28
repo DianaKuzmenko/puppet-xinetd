@@ -6,9 +6,11 @@
 # more specific service related definitions of the module.
 #
 # Sample Usage :
-#   include xinetd
+#   include '::xinetd'
 #
-class xinetd inherits ::xinetd::params {
+class xinetd (
+  $package = $::xinetd::params::package,
+) inherits ::xinetd::params {
 
   package { $package: ensure => installed }
 
@@ -21,11 +23,11 @@ class xinetd inherits ::xinetd::params {
   }
 
   service { 'xinetd':
-    require   => Package[$package],
-    enable    => true,
     ensure    => running,
+    enable    => true,
     restart   => '/etc/init.d/xinetd reload',
     hasstatus => $hasstatus,
+    require   => Package[$package],
   }
 
 }

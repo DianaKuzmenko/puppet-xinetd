@@ -1,4 +1,6 @@
+2015-04-28 - 1.0.0
 * Fix OS version comparison for Puppet 4.
+* Update README, use new metadata.json.
 
 2013-07-18 - 0.2.2
 * Add Gentoo support.
